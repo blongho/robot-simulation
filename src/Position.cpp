@@ -9,7 +9,7 @@ Position::Position(const int &xPos, const int &yPos)
         : x{xPos}, y{yPos} {}
 
 Position::Position(const int &xPos, const int &yPos, const int &newMinPos=0, const int &newMaxPos=10)
-: Position(xPos, yPos), minPos{newMinPos}, maxPos{newMaxPos}{}
+: x{xPos}, y{yPos}, minPos{newMinPos}, maxPos{newMaxPos}{}
 
 int Position::getX() const {
     return x;
@@ -39,7 +39,7 @@ void Position::setMinPos(int newMinPos){
     minPos = newMinPos;
 }
 
-void Position::setMinPos(int newMinPos){
+void Position::setMaxPos(int newMaxPos){
     maxPos = newMaxPos;
 }
 
