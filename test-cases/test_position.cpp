@@ -13,7 +13,7 @@ SCENARIO("Testing point behaviour") {
             REQUIRE(point.getX() == point.getY());
         }AND_THEN("The values of x and y can vary independently") {
             point.setX(5);
-            point.setY(5);
+            point.setY(6);
             REQUIRE_FALSE(point.getX() == point.getY());
             REQUIRE(point.getX() == 5);
             REQUIRE(point.getY() == 6);
@@ -23,7 +23,7 @@ SCENARIO("Testing point behaviour") {
 
 SCENARIO("A point is given that is out of the table") {
     WHEN("A point has negative values") {
-        Position point(5, 0);
+        Position point(5, -1);
         THEN("It should evaluate as invalid") {
             REQUIRE_FALSE(point.isValid());
         }
