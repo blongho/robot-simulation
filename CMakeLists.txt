@@ -31,5 +31,9 @@ endif ()
 
 
 
-add_executable(position_test src/Position.cpp test-cases/test_position.cpp)
-target_link_libraries(position_test PRIVATE Catch2::Catch2WithMain)
+#add_executable(position_test src/Position.cpp test-cases/test_position.cpp)
+#target_link_libraries(position_test PRIVATE Catch2::Catch2WithMain)
+
+# Enable testing for the project
+enable_testing()
+add_subdirectory(test-cases)
