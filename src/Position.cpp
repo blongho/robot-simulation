@@ -8,6 +8,9 @@
 Position::Position(const int &xPos, const int &yPos)
         : x{xPos}, y{yPos} {}
 
+Position::Position(const int &xPos, const int &yPos, const int &newMinPos=0, const int &newMaxPos=10)
+: Position(xPos, yPos), minPos{newMinPos}, maxPos{newMaxPos}{}
+
 int Position::getX() const {
     return x;
 }
@@ -32,9 +35,19 @@ void Position::setY(int yPos) {
     }
 }
 
+void Position::setMinPos(int newMinPos){
+    minPos = newMinPos;
+}
+
+void Position::setMinPos(int newMinPos){
+    maxPos = newMaxPos;
+}
+
 bool Position::operator==(const Position &rhs) const {
     return x == rhs.x &&
-           y == rhs.y;
+           y == rhs.y && 
+           minPos == rhs.minPos &&
+           maxPos == rhs.maxPos;
 }
 
 bool Position::operator!=(const Position &rhs) const {
@@ -56,16 +69,20 @@ bool Position::isValid() const {
 Position::Position(const Position &&position) noexcept {
     std::exchange(x, position.x);
     std::exchange(y, position.y);
+    std::exchange(minPos, position.minPos);
+    std::exchange(maxPos, position.maxPos);
 }
 
 Position &Position::operator=(const Position &position) noexcept {
     x = position.x;
     y = position.y;
+    minPos = position.minPos;
+    maxPos = position.maxPos;
     return *this;
 }
 
 Position::Position(const Position &position)
-:x(position.x), y(position.y){}
+:x(position.x), y(position.y), minPos(position.minPos), maxPos(position.maxPos){}
 
 std::ostream &operator<<(std::ostream &os, const Position &position) {
     os  << position.getX() << "," << position.getY();

@@ -9,12 +9,15 @@
 
 class Position  final {
 private:
-    const int minPos = 0;
-    const int maxPos = 10;
+    int minPos = 0;
+    int maxPos = 10;
     int x{};
     int y{};
 public:
     explicit Position(const int &xPos, const int &yPos);
+    
+    explicit Position(const int &xPos, const int &yPos, const int &minPos=0, const int &maxPos=10);
+
     Position() = default;
     Position(const Position &&position) noexcept ;
     Position & operator=(const Position &position) noexcept;
@@ -36,6 +39,10 @@ public:
     [[maybe_unused]] [[nodiscard]]  int getMinPos() const;
 
     [[maybe_unused]] [[nodiscard]]  int getMaxPos() const;
+    
+    void setMinPos(int newMinPos);
+
+    void setMaxPos(int newMaxPos);
 
     [[nodiscard]] bool isValid() const;
 
