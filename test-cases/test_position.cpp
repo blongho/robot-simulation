@@ -19,6 +19,7 @@ SCENARIO("Testing position behaviour") {
             REQUIRE(position.getY() == 6);
         }
     }AND_WHEN("The max and min values of the position is set with different values"){
+        Position position;
         THEN("This shall take effect and be different from the initial values"){
             REQUIRE_TRUE(position.getMax() == 10);
             REQUIRE_TRUE(position.getMin() == 0);
@@ -31,8 +32,8 @@ SCENARIO("Testing position behaviour") {
             REQUIRE_TRUE(position.getMin() == 1);
         }
     }AND_WHEN("The max and min values are set from the constructor"){
+        Position newPosition(0,0,0,4);
         THEN("It shall appply through out"){
-            Position newPosition(0,0,0,4);
             REQUIRE_TRUE(newPosition.getMax() == 4);
             REQUIRE_TRUE(newPosition.getMin() == 0);
             REQUIRE_TRUE(newPosition.getX() == 0);
@@ -43,8 +44,8 @@ SCENARIO("Testing position behaviour") {
 }
 
 SCENARIO("A position is given that is out of the allowed range") {
+    Position position(5, -1);
     WHEN("A position has negative values") {
-        Position position(5, -1);
         THEN("It should evaluate as invalid") {
             REQUIRE_FALSE(position.isValid());
             position.setX(11); //  max is 10
