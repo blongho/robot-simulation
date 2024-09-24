@@ -21,23 +21,23 @@ SCENARIO("Testing position behaviour") {
     }AND_WHEN("The max and min values of the position is set with different values"){
         Position position;
         THEN("This shall take effect and be different from the initial values"){
-            REQUIRE_TRUE(position.getMax() == 10);
-            REQUIRE_TRUE(position.getMin() == 0);
+            REQUIRE(position.getMaxPos() == 10);
+            REQUIRE(position.getMinPos() == 0);
 
             // set the values
-            position.setMax(5);
-            position.setMin(1);
+            position.setMaxPos(5);
+            position.setMinPos(1);
 
-            REQUIRE_TRUE(position.getMax() == 5);
-            REQUIRE_TRUE(position.getMin() == 1);
+            REQUIRE(position.getMaxPos() == 5);
+            REQUIRE(position.getMinPos() == 1);
         }
     }AND_WHEN("The max and min values are set from the constructor"){
         Position newPosition(0,0,0,4);
         THEN("It shall appply through out"){
-            REQUIRE_TRUE(newPosition.getMax() == 4);
-            REQUIRE_TRUE(newPosition.getMin() == 0);
-            REQUIRE_TRUE(newPosition.getX() == 0);
-            REQUIRE_TRUE(newPosition.getY() == 0);
+            REQUIRE(newPosition.getMaxPos() == 4);
+            REQUIRE(newPosition.getMinPos() == 0);
+            REQUIRE(newPosition.getX() == 0);
+            REQUIRE(newPosition.getY() == 0);
             REQUIRE_FALSE(newPosition == (Position(0,1)));
         }
     }

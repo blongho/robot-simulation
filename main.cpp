@@ -5,7 +5,7 @@ int main() {
     while (robot.move()){
        std::cout << "Robot made a move. State [";
        robot.report();
-       std::cout << "]\n";
+       std::cout << "]\n\n";
     }
     return 0;
 }

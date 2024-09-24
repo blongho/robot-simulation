@@ -16,7 +16,7 @@ private:
 public:
     explicit Position(const int &xPos, const int &yPos);
     
-    explicit Position(const int &xPos, const int &yPos, const int &minPos=0, const int &maxPos=10);
+    explicit Position(const int &xPos, const int &yPos, const int &minPos, const int &maxPos);
 
     Position() = default;
     Position(const Position &&position) noexcept ;

@@ -87,7 +87,7 @@ bool Robot::isMovePossible(std::ostream &os) const {
 }
 
 void Robot::report(std::ostream &os) const {
-    os << *this << std::endl;
+    os << *this;
 }
 
 bool Robot::moveNorth(std::ostream &os) {
