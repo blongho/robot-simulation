@@ -48,12 +48,12 @@ SCENARIO("A position is given that is out of the allowed range") {
     WHEN("A position has negative values") {
         THEN("It should evaluate as invalid") {
             REQUIRE_FALSE(position.isValid());
-            position.setX(11); //  max is 10
-            position.setY(11);
+            REQUIRE_THROWS_AS(position.setX(11), std::invalid_argument); //  max is 10
+            REQUIRE_THROWS_AS(position.setY(11), std::invalid_argument);
             REQUIRE_FALSE(position.isValid());
 
-            position.setX(-1);
-            position.setY(-1);
+            REQUIRE_THROWS_AS(position.setX(-1), std::invalid_argument);
+            REQUIRE_THROWS_AS(position.setY(-1), std::invalid_argument);
 
             REQUIRE_FALSE(position.isValid());
         }
