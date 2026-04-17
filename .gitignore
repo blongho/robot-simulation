@@ -1,0 +1,7 @@
+.sixth 
+*.iml
+*.log
+*.pyc
+build/*
+cmake-build*
+.idea
