@@ -4,8 +4,6 @@ project(robottest)
 
 SET(CMAKE_CXX_STANDARD 17)
 
-set(TEST_NAME test_app)
-
 Include(FetchContent)
 
 FetchContent_Declare(
